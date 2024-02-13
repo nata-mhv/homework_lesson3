@@ -1,11 +1,13 @@
-from selene import browser, be, have
+from selene import browser
 import pytest
 
-@pytest.fixture(scope='session')
-def browser_open():
-    browser.open('https://google.com')
-    print("Browser opens")
+@pytest.fixture(scope='function')
+def setting_browser():
+    browser.config.window_height = 700
+    browser.config.window_width = 1200
+    print('Browser opens')
 
     yield
 
-    print("Browser is closed")
+    browser.quit()
+    print('Browser is closed')
