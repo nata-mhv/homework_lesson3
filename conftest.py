@@ -1,5 +1,3 @@
-from selene import browser
-import pytest
 
 @pytest.fixture(scope='function')
 def setting_browser():
